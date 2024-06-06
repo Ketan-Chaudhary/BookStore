@@ -1,16 +1,24 @@
 import React from 'react'
-import Navbar from './Components/Navbar/Navbar'
-import Banner from './Components/Banner/Banner'
-import Footer from './Components/Footer/Footer'
-import Books from './Components/Books/Books'
+import Home from './Pages/Home'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Courses from './Pages/Courses'
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/course",
+    element: <Courses />,
+  },
+]);
 
 const App = () => {
   return (
     <>
-    <Navbar/>
-    <Banner/>
-    <Books/>
-    <Footer/>
+     <RouterProvider router={router} />
     </>
   )
 }
