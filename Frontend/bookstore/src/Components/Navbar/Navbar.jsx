@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [sticky,setSticky]= useState(false)
+  useEffect(()=>{
+    const handleScroll= ()=>{
+      if(window.scrollY>0){
+        setSticky(true)
+      }
+      else{
+        setSticky(false)
+      }
+    }
+    window.addEventListener('scroll',handleScroll)
+    return()=>{
+      window.removeEventListener('scroll',handleScroll)
+    }
+  },[])
   const navItems = (
     <>
       <li>
@@ -18,8 +33,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <section className="max-w-screen-2xl container mx-auto md:px-20 px-4">
-      <div className="navbar bg-base-100">
+    <section className={`max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 ${sticky? "sticky-navbar shadow-md bg-base-100 duration-300 transition-all ease-in-out":""} `} >
+      <div className="navbar ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

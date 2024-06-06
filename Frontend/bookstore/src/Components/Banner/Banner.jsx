@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <section>
-      <div className="banner-container max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row">
+      <div className="banner-container max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-4">
         <div className="left-banner  mt-12 md:mt-32 w-full md:order-1 order-2">
           <div className="space-y-10">
             <h1 className="text-4xl font-bold">
