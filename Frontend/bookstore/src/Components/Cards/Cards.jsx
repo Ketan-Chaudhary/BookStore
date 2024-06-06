@@ -2,7 +2,7 @@ import React from "react";
 
 const Cards = ({ item }) => {
   return (
-    <div className="mt-4 my-4 hover:scale-105 duration-300 transition-all ease-in">
+    <div className="mt-4 my-4 hover:scale-105 duration-200 transition-all ease-in">
       <div className="card w-80 h-100 bg-base-100 shadow-xl ">
         <figure>
           <img
