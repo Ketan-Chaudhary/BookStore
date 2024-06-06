@@ -81,14 +81,6 @@
         "image": "https://th.bing.com/th/id/OIP.Qmq31o3ZAF-SJH7l8n8_qgHaGz?rs=1&pid=ImgDetMain"
     },
     {
-        "id": 10,
-        "name": "Herman Melville",
-        "title": "Moby Dick",
-        "price": 0,
-        "category": "free",
-        "image": "https://th.bing.com/th/id/OIP.Qmq31o3ZAF-SJH7l8n8_qgHaGz?rs=1&pid=ImgDetMain"
-    },
-    {
         "id": 11,
         "name": "Bram Stoker",
         "title": "Dracula",
