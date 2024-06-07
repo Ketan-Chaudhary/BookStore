@@ -30,7 +30,7 @@ const Banner = () => {
             </label>
 
           </div>
-            <button className="btn btn-secondary mt-6">Secondary</button>
+            <button className="btn btn-secondary mt-6">Get Started</button>
         </div>
         <div className="right-banner w-full order-1">
         <img src="./books-banner.png" className="w-82 h-92"  alt="" />
