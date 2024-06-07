@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const {
@@ -9,7 +11,33 @@ const Login = () => {
 
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+           email: data.email,
+      password: data.password,
+    };
+    // console.log(data)
+    await axios
+      .post("http://localhost:4001/user/login", userInfo)
+      .then((res) => {
+        console.log(data);
+        if (res.data) {
+          toast.success('Loggedin Successfully!');
+          document.getElementById("my_modal_3").close()
+          setTimeout(() => {
+            window.location.reload()
+            localStorage.setItem("Users", JSON.stringify( res.data.user))
+            
+          }, 1000);
+          }
+      })
+      .catch((e) => {
+        if(e.response){
+          toast.error( e.response.data.message);
+          // alert("Error:"+ e.response.data.message)
+        }
+      });
+  };
   return (
     <div>
       <dialog id="my_modal_3" className="modal">
@@ -84,14 +112,16 @@ const Login = () => {
               <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">
                 Login
               </button>
-              <p>
+              <p className="text-xl">
                 Not registered?{" "}
                 <Link
                   to="/signup"
                   className="underline text-blue-500 cursor-pointer"
+                  onClick={() => document.getElementById("my_modal_3").close()}
                 >
-                  Signup
+                  Signup 
                 </Link>{" "}
+                
               </p>
             </div>
           </form>

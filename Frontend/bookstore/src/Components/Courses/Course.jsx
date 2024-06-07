@@ -1,8 +1,23 @@
-import React from 'react'
-import data from '../../assets/books.json'
+import React, { useEffect, useState } from 'react'
+// import data from '../../assets/books.json'
 import Cards from '../Cards/Cards'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+
 const Course = () => {
+    const[book,setBook]= useState([])
+    useEffect(()=>{
+        const getBook= async()=>{
+            try {
+                const res= await axios.get("http://localhost:4001/book")
+                console.log(res.data)
+                setBook(res.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getBook();
+    },[])
   return (
     <section>
         <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
@@ -16,7 +31,7 @@ const Course = () => {
 
             <div className='mt-12 grid grid-cols-1 md:grid-cols-4'>
                 {
-                    data.map((item)=>(
+                    book.map((item)=>(
                         <Cards item={item} key={item.id}/>
                     ))
                 }
