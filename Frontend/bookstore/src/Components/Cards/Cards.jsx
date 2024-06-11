@@ -2,7 +2,7 @@ import React from "react";
 
 const Cards = ({ item }) => {
   return (
-    <div className="mt-4 my-4 ">
+    <div className="mt-4 my-4 flex justify-center gap-3">
       <div className="card w-80 h-100 bg-base-100 shadow-xl rounded-md hover:scale-105 duration-200 transition-all ease-in  dark:bg-slate-900 dark:text-white dark:border ">
         <figure>
           <img
